@@ -3,6 +3,8 @@ package com.bolsadeideas.springboot.backend.apirest.audit;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
@@ -45,7 +47,7 @@ public class LoggingAspect {
      * @param joinPoint joint point for advice
      * @param e exception
      */
-    //@AfterThrowing(pointcut = "applicationPackagePointcut && springBeanPointcut", throwing = "e")
+    @AfterThrowing(value = "applicationPackagePointcut() && springBeanPointcut()", throwing = "e")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
         log.error("Exception in {}.{} with cause = {}", joinPoint.getSignature().getDeclaringTypeName(),
                 joinPoint.getSignature().getName(), e.getCause() != null ? e.getCause() : "NULL");
@@ -57,7 +59,7 @@ public class LoggingAspect {
      * @return  result
      * @throws Throwable throws IllegalArgumentException
      */
-    //@Around("applicationPackagePointcut() && springBeanPointcut()")
+    @Around(value = "applicationPackagePointcut() && springBeanPointcut()")
     public Object logAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         if(log.isDebugEnabled()) {
             log.debug("BEGIN: {}.{}() with argument[s] = {}", proceedingJoinPoint.getSignature().getDeclaringTypeName(),
