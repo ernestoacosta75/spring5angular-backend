@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.stream.Stream;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Service
@@ -18,8 +19,11 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     @Transactional(readOnly = true)
-    public Stream<Client> findAll() {
-        return StreamSupport.stream(clientDao.findAll().spliterator(), false);
+    public List<Client> findAll() {
+
+        return StreamSupport
+                .stream(clientDao.findAll().spliterator(), false)
+                .collect(Collectors.toList());
     }
 
     @Override
