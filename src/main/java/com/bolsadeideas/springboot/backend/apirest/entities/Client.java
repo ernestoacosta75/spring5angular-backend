@@ -1,9 +1,8 @@
 package com.bolsadeideas.springboot.backend.apirest.entities;
 
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,8 +14,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "clients")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @Builder
 public class Client implements Serializable {

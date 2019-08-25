@@ -1,0 +1,12 @@
+INSERT INTO clients(name, last_name, email, created_at) VALUES('Andres', 'Guzman', 'teacher@boldadeideas.com', '2019-01-01');
+INSERT INTO clients(name, last_name, email, created_at) VALUES('John', 'Doe', 'teacher@boldadeideas.com', '2019-02-02');
+INSERT INTO clients(name, last_name, email, created_at) VALUES('Linus', 'Torvalds', 'teacher@boldadeideas.com', '2019-03-03');
+INSERT INTO clients(name, last_name, email, created_at) VALUES('Rasmus', 'Lerdorf', 'teacher@boldadeideas.com', '2019-04-04');
+INSERT INTO clients(name, last_name, email, created_at) VALUES('Erich', 'Gamma', 'teacher@boldadeideas.com', '2019-05-05');
+INSERT INTO clients(name, last_name, email, created_at) VALUES('Richard', 'Helm', 'teacher@boldadeideas.com', '2019-06-06');
+INSERT INTO clients(name, last_name, email, created_at) VALUES('Ralph', 'Johnson', 'teacher@boldadeideas.com', '2019-07-07');
+INSERT INTO clients(name, last_name, email, created_at) VALUES('John', 'Vlissides', 'teacher@boldadeideas.com', '2019-08-08');
+INSERT INTO clients(name, last_name, email, created_at) VALUES('James', 'Gosling', 'teacher@boldadeideas.com', '2019-09-09');
+INSERT INTO clients(name, last_name, email, created_at) VALUES('Magma', 'Lee', 'teacher@boldadeideas.com', '2019-10-10');
+INSERT INTO clients(name, last_name, email, created_at) VALUES('Tornado', 'Roe', 'teacher@boldadeideas.com', '2019-11-11');
+INSERT INTO clients(name, last_name, email, created_at) VALUES('Jade', 'Doe', 'teacher@boldadeideas.com', '2019-12-12');
