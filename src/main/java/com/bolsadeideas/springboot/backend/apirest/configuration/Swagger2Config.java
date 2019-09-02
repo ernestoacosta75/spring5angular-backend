@@ -34,7 +34,7 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2).select()
                 .apis(RequestHandlerSelectors
                     .basePackage("com.bolsadeideas.springboot.backend.apirest.controllers"))
-                .paths(PathSelectors.regex("/.**"))
+                .paths(PathSelectors.regex("/.*"))
                 .build().apiInfo(apiEndPointsInfo());
     }
 
