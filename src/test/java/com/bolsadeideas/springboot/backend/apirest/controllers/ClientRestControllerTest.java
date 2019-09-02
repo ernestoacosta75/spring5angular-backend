@@ -94,4 +94,9 @@ public class ClientRestControllerTest {
         Assert.assertTrue(clients.size() == 2);
     }
 
+    @Test
+    public void givenClientToSave_whenMockMvc_thenReturns_ClientEntitySaved() throws Exception {
+
+    }
+
 }
