@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -42,5 +43,11 @@ public class ClientRestController {
     @GetMapping("/clients/{id}")
     public Client show(@ApiParam(value = "The client id", required = true) @Valid @PathVariable Long id) {
         return clientService.findById(id);
+    }
+
+    @PostMapping("/clients")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Client create(@RequestBody Client client) {
+        return clientService.save(client);
     }
 }
