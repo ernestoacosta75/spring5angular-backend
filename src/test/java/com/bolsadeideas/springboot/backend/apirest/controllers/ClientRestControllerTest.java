@@ -57,7 +57,7 @@ public class ClientRestControllerTest extends AbstractTest {
     }
 
     @Test
-    public void showTest () throws Exception {
+    public void findByIdTest () throws Exception {
         String uri = "/api/clients/" + CLIENT_ID;
 
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(uri)
@@ -97,5 +97,40 @@ public class ClientRestControllerTest extends AbstractTest {
 
         String content = mvcResult.getResponse().getContentAsString();
         Assert.assertTrue(content.split(",")[1].contains("Test"));
+    }
+
+    @Test
+    public void updateTest () throws Exception {
+        String uri = "/api/clients/" + CLIENT_ID;
+
+        Client client = Client.builder().id(CLIENT_ID).name("Lemon").build();
+
+        String inputJson = super.mapToJson(client);
+
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.put(uri)
+                                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                                .content(inputJson))
+                                .andReturn();
+
+        int status = mvcResult.getResponse().getStatus();
+        Assert.assertEquals(201, status);
+
+        String content = mvcResult.getResponse().getContentAsString();
+        Assert.assertTrue(content.split(",")[1].contains("Lemon"));
+    }
+
+    @Test
+    public void deleteTest () throws Exception {
+        String uri = "/api/clients/" + CLIENT_ID;
+
+
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.delete(uri))
+                                .andReturn();
+
+        int status = mvcResult.getResponse().getStatus();
+        Assert.assertEquals(204, status);
+
+        String content = mvcResult.getResponse().getContentAsString();
+        Assert.assertEquals("", content);
     }
 }
